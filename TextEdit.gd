@@ -12,7 +12,7 @@ func _ready():
 	var output = []
 	var exit_code
 	
-	if Globals.current_os = "OSX":
+	if Globals.current_os == "OSX":
 		
 		exit_code = OS.execute("sw_vers", [], true, output)
 		for line in output:
