@@ -11,24 +11,22 @@ func _ready():
 	
 	var output = []
 	var exit_code
-	exit_code = OS.execute( 'pwd', [], true, output )
-	for line in output:
-	  self.text = self.text + line
-	  print (exit_code)
-	  print (line)
 	
-	exit_code = OS.execute("sw_vers", [], true, output)
-	for line in output:
-	  self.text = self.text + line
-	  print (exit_code)
-	  print (line)
+	if Globals.current_os = "OSX":
+		
+		exit_code = OS.execute("sw_vers", [], true, output)
+		for line in output:
+		  self.text = self.text + line
+		  print (exit_code)
+		  print (line)
+		
+		exit_code = OS.execute("system_profiler", ["SPHardwareDataType"], true, output)
+		for line in output:
+		  self.text = self.text + line
+		  print (exit_code)
+		  print (line)
 	
-	exit_code = OS.execute("system_profiler", ["SPHardwareDataType"], true, output)
-	for line in output:
-	  self.text = self.text + line
-	  print (exit_code)
-	  print (line)
-	
+		
 	
 	"""
 	exit_code = OS.execute("ls", ["-al", "/Users/martijnvandenboom/Downloads/"], true, output)
